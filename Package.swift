@@ -41,6 +41,9 @@ let package = Package(
             ],
             resources: [
                 .process("Resources/duckduckgo-autofill/dist/autofill.js"),
+                .process("Resources/duckduckgo-autofill/dist/TopAutofill.html"),
+                .process("Resources/duckduckgo-autofill/dist/topAutofill.js"),
+                .process("Autofill/ContentOverlay.storyboard"),
                 .process("ContentBlocking/UserScripts/contentblockerrules.js"),
                 .process("ContentBlocking/UserScripts/surrogates.js"),
                 .copy("Resources/trackerData.json")
