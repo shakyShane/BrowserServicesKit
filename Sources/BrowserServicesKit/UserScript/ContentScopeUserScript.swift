@@ -20,14 +20,29 @@ import Foundation
 import WebKit
 import Combine
 
+public struct ContentScopePlatform: Encodable {
+    var name = "unknown"
+    public init(){}
+    public init(_ name: String) {
+        self.name = name;
+    }
+}
+
 public final class ContentScopePreferences: Encodable {
     public let globalPrivacyControlValue: Bool
     public let debug: Bool = false
     public let sessionKey: String
+    public var platform = ContentScopePlatform()
 
     public init(gpcEnabled: Bool, sessionKey: String) {
         self.globalPrivacyControlValue = gpcEnabled
         self.sessionKey = sessionKey
+    }
+
+    public init(gpcEnabled: Bool, sessionKey: String, platform: ContentScopePlatform) {
+        self.globalPrivacyControlValue = gpcEnabled
+        self.sessionKey = sessionKey
+        self.platform = platform
     }
 }
 
